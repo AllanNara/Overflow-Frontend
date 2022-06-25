@@ -4,7 +4,7 @@ import { user, URL } from "../action-types/index.js";
 
 export function createUser(loginWithAuth0) {
   return (dispatch) => {
-    axios.post(`${URL}/users`, loginWithAuth0)
+    axios.post(`/users`, loginWithAuth0)
       .then(response => {
         dispatch({
           type: user.CREATE_USER,
@@ -19,7 +19,7 @@ export function createUser(loginWithAuth0) {
 
 export function getUsers() {
   return (dispatch) => {
-    axios.get(`${URL}/users`)
+    axios.get(`/users`)
       .then(response => {
         dispatch({
           type: user.GET_USERS,
@@ -34,7 +34,7 @@ export function getUsers() {
 
 export function getUsersByName(search) {
   return (dispatch) => {
-    axios.get(`${URL}/users?fullname=${search}`)
+    axios.get(`/users?fullname=${search}`)
       .then(response => {
         dispatch({
           type: user.GET_USERS_BY_NAME,
@@ -49,7 +49,7 @@ export function getUsersByName(search) {
 
 export function userDinamix(idUser) {
   return (dispatch) => {
-    axios.get(`${URL}/users/${idUser}?dinamix=true`)
+    axios.get(`/users/${idUser}?dinamix=true`)
       .then(response => {
         dispatch({
           type: user.GET_USERS_BY_NAME,
@@ -64,7 +64,7 @@ export function userDinamix(idUser) {
 
 export function getUserProfile(idUser) {
   return (dispatch) => {
-    axios.get(`${URL}/users/${idUser}`)
+    axios.get(`/users/${idUser}`)
       .then(response => {
         dispatch({
           type: user.GET_USER_PROFILE,
@@ -80,7 +80,7 @@ export function getUserProfile(idUser) {
 export function updateUserProfile(form, idUser) {
   // console.log('from:', form, 'user:', idUser)
   return (dispatch) => {
-    axios.put(`${URL}/users/${idUser}`, form)
+    axios.put(`/users/${idUser}`, form)
       .then(response => {
         dispatch({
           type: user.UPDATE_USER_PROFILE,
@@ -98,7 +98,7 @@ export function finishedPost(idPost, finishedPost, idUser) {
   console.log('id del post:', idPost, 'esta en:', finishedPost, 'el cual tiene un user id:', idUser)
 
   return (dispatch) => {
-    axios.put(`${URL}/posts/${idPost}/${idUser}`, finishedPost)
+    axios.put(`/posts/${idPost}/${idUser}`, finishedPost)
       .then(response => {
         dispatch({
           type: user.FINISHED_POST,

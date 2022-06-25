@@ -4,7 +4,7 @@ import { admin, URL } from "../action-types/index.js";
 
 export function banUser(idUser, idAdmin) {
     return (dispatch) => {
-        axios.put(`${URL}/admin/users/ban/${idUser}`, null, {
+        axios.put(`/admin/users/ban/${idUser}`, null, {
             headers: {
                 authorization: idAdmin
             }            

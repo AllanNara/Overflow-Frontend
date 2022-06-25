@@ -57,7 +57,7 @@ const ButtonWrapper = ({ type }) => {
               "Has creado una suscripción exitosamente" + data.subscriptionID
             );
             axios
-              .get(`${URL}/payment/suscription-detail/${data.subscriptionID}`)
+              .get(`/payment/suscription-detail/${data.subscriptionID}`)
               .then((response) => {
                 console.log(response.data);
                 console.log(actions);
@@ -93,7 +93,7 @@ const ButtonWrapper = ({ type }) => {
                 let userId = user.id;
 
                 axios
-                  .post(`${URL}/orders/${userId}`, obj)
+                  .post(`/orders/${userId}`, obj)
 
                   .then((response) => {
                     Swal.fire(
@@ -132,7 +132,7 @@ const ButtonWrapper = ({ type }) => {
               "Has creado una suscripción exitosamente" + data.subscriptionID
             );
             axios
-              .get(`${URL}/payment/suscription-detail/${data.subscriptionID}`)
+              .get(`/payment/suscription-detail/${data.subscriptionID}`)
               .then((response) => {
                 console.log(response.data);
                 console.log(actions);
@@ -167,7 +167,7 @@ const ButtonWrapper = ({ type }) => {
                 obj.user_email = user.email;
                 let userId = user.id;
 
-                axios.post(`${URL}/orders/${userId}`, obj).then((response) => {
+                axios.post(`/orders/${userId}`, obj).then((response) => {
                   console.log(response);
                   Swal.fire(
                     "Aviso!",
@@ -206,7 +206,7 @@ const ButtonWrapper = ({ type }) => {
             );
 
             axios
-              .get(`${URL}/payment/suscription-detail/${data.subscriptionID}`)
+              .get(`/payment/suscription-detail/${data.subscriptionID}`)
               .then((response) => {
                 console.log(response.data);
                 console.log(actions);
@@ -241,7 +241,7 @@ const ButtonWrapper = ({ type }) => {
                 obj.user_email = user.email;
                 let userId = user.id;
 
-                axios.post(`${URL}/orders/${userId}`, obj).then((response) => {
+                axios.post(`/orders/${userId}`, obj).then((response) => {
                   Swal.fire(
                     "Aviso!",
                     `Donación realizada, muchas gracias.`,

@@ -4,7 +4,7 @@ import { getUserProfile } from "./user.js"
 
 export function getLikes(idOf) {
     return (dispatch) => {
-        axios.get(`${URL}/likes/${idOf}`)
+        axios.get(`/likes/${idOf}`)
             .then(response => {dispatch({
                 type: like.GET_LIKES,
                 payload: response.data
@@ -17,7 +17,7 @@ export function getLikes(idOf) {
 
 export function setLikesByUser(idOf, idUser) {
     return (dispatch) => {
-        axios.put(`${URL}/likes/${idOf}/${idUser}`, null)
+        axios.put(`/likes/${idOf}/${idUser}`, null)
             .then(response => {dispatch({
                 type: like.SET_LIKES_BY_USER,
                 payload: response.data

@@ -4,7 +4,7 @@ import Swal from "sweetalert2"
 
 export function sendReport(formReport, idOf, idUser) {
     return (dispatch) => {
-        axios.post(`${URL}/reports/${idOf}/${idUser}`, formReport)
+        axios.post(`/reports/${idOf}/${idUser}`, formReport)
             .then(response => {dispatch({
                 type: report.SEND_REPORT,
                 payload: response.data

@@ -59,12 +59,9 @@ export const AdminEditTags = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3001/admin/tags/${tag.idModulo}`, {  // DESACTIVAR PARA DEPLOY
-    // axios
-    //   .post(
-    //     `https://henry-overflow-api.herokuapp.com/admin/tags/${tag.idModulo}`,
-    //     {
-          // ACTIVAR PARA DEPLOY
+    axios.post(`/admin/tags/${tag.idModulo}`, {  
+    // axios.post(`http://localhost:3001/admin/tags/${tag.idModulo}`, {  // DESACTIVAR PARA DEPLOY
+    // axios.post(`https://henry-overflow-api.herokuapp.com/admin/tags/${tag.idModulo}`, { // ACTIVAR PARA DEPLOY
           tag: tag.name,
         },
         {
