@@ -4,7 +4,7 @@ import { inbox, URL } from "../action-types/index.js";
 
 export function userInbox(idUser) {
     return (dispatch) => {
-        axios.get(`${URL}/inboxes/${idUser}`)
+        axios.get(`/inboxes/${idUser}`)
             .then(response => {dispatch({
                 type: inbox.USER_INBOX,
                 payload: response.data
@@ -17,7 +17,7 @@ export function userInbox(idUser) {
 
 export function viewNotification(idUser, idNotification) {
     return (dispatch) => {
-        axios.put(`${URL}/inboxes/${idUser}/${idNotification}`, null)
+        axios.put(`/inboxes/${idUser}/${idNotification}`, null)
             .then(response => {dispatch({
                 type: inbox.VIEW_NOTIFICATION,
                 payload: response.data
@@ -31,7 +31,7 @@ export function viewNotification(idUser, idNotification) {
 
 export function deleteNotification(idUser, idNotification) {
     return (dispatch) => {
-        axios.put(`${URL}/inboxes/${idUser}/${idNotification}?clean=true`, null)
+        axios.put(`/inboxes/${idUser}/${idNotification}?clean=true`, null)
             .then(response => {dispatch({
                 type: inbox.DELETE_NOTIFICATION,
                 payload: response.data
@@ -45,7 +45,7 @@ export function deleteNotification(idUser, idNotification) {
 
 export function cleanInbox(idUser) {
     return (dispatch) => {
-        axios.delete(`${URL}/inboxes/clean/${idUser}`)
+        axios.delete(`/inboxes/clean/${idUser}`)
             .then(response => {dispatch({
                 type: inbox.CLEAN_INBOX,
                 payload: response.data

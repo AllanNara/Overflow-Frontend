@@ -17,7 +17,7 @@ export const AdminReports = () => {
   useEffect(() => {
     const loadReports = () => {
       setLoading(true);
-      dispatch(getAllReports());
+      dispatch(getAllReports(user.id));
       setLoading(false);
     };
     loadReports();

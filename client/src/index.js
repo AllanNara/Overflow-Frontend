@@ -11,7 +11,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ColorContextProvider } from "./darkMode/index";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3000";
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

@@ -4,7 +4,7 @@ import { admin, URL } from "../action-types/index.js";
 
 export function getAllReports(idAdmin) {
     return (dispatch) => {
-        axios.get(`${URL}reports`, {
+        axios.get(`/admin/reports`, {
             headers: {
                 authorization: idAdmin
             }
@@ -21,7 +21,7 @@ export function getAllReports(idAdmin) {
 
 export function getDetailReport(idReport, idAdmin) {
     return (dispatch => {
-        axios.get(`${URL}reports/${idReport}`, {
+        axios.get(`/admin/reports/${idReport}`, {
             headers: {
                 authorization: idAdmin
             }
@@ -38,7 +38,7 @@ export function getDetailReport(idReport, idAdmin) {
 
 export function deleteReport(idReport, idAdmin) {
     return (dispatch => {
-        axios.delete(`${URL}reports/${idReport}`, {
+        axios.delete(`/admin/reports/${idReport}`, {
             headers: {
                 authorization: idAdmin
             }

@@ -4,7 +4,7 @@ import { admin, URL } from "../action-types/index.js";
 
 export function addTag(tag, idModule, idAdmin) {
     return (dispatch) => {
-        axios.post(`${URL}/admin/tags/${idModule}`, tag, {
+        axios.post(`/admin/tags/${idModule}`, tag, {
             headers: {
                 authorization: idAdmin
             }            
@@ -21,7 +21,7 @@ export function addTag(tag, idModule, idAdmin) {
 
 export function deleteTag(idTag, idAdmin) {
     return (dispatch) => {
-        axios.delete(`${URL}/admin/tags/${idTag}`, {
+        axios.delete(`/admin/tags/${idTag}`, {
             headers: {
                 authorization: idAdmin
             }  

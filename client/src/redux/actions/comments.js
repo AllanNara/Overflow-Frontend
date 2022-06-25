@@ -4,7 +4,7 @@ import { comment, URL } from "../action-types/index.js";
 
 export function addComment(message, idPost, idUser) {
   return (dispatch) => {
-    axios.post(`${URL}/comments/${idPost}/${idUser}`, message, {
+    axios.post(`/comments/${idPost}/${idUser}`, message, {
       headers: {
         authorization: idUser
       } 
@@ -21,7 +21,7 @@ export function addComment(message, idPost, idUser) {
 
 export function updateComment(messageUpdate, idComment, idUser) {
   return (dispatch) => {
-    axios.put(`${URL}/comments/${idComment}/${idUser}`, messageUpdate)
+    axios.put(`/comments/${idComment}/${idUser}`, messageUpdate)
       .then(response => {dispatch({
         type: comment.UPDATE_COMMENT,
         payload: response.data
@@ -34,7 +34,7 @@ export function updateComment(messageUpdate, idComment, idUser) {
 
 export function deleteComment(idComment, idUser) {
   return (dispatch) => {
-    axios.delete(`${URL}/comments/${idComment}/${idUser}`)
+    axios.delete(`/comments/${idComment}/${idUser}`)
     .then(response => {dispatch({
       type: comment.DELETE_COMMENT,
       payload: idComment
@@ -50,7 +50,7 @@ export function deleteComment(idComment, idUser) {
 
 export function isCorrectAnswer(idComment, idUser) {
   return (dispatch) => {
-    axios.put(`${URL}/comments/${idComment}/${idUser}?is_correct=true`, null)
+    axios.put(`/comments/${idComment}/${idUser}?is_correct=true`, null)
       .then(response => {dispatch({
         type: "IS_CORRECT_ANSWER",
         payload: response.data

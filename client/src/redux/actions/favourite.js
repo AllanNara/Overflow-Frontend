@@ -5,7 +5,7 @@ import { getUserProfile } from "./user.js"
 
 export function getFavorite(idUser) {
   return (dispatch) => {
-    axios.get(`${URL}/favorites/${idUser}`)
+    axios.get(`/favorites/${idUser}`)
     .then(response => {dispatch({
       type: favorite.GET_FAVORITE,
       payload: response.data
@@ -19,7 +19,7 @@ export function getFavorite(idUser) {
 
 export function setFavorite(idOf, idUser) {
   return (dispatch) => {
-    axios.put(`${URL}/favorites/${idOf}/${idUser}`)
+    axios.put(`/favorites/${idOf}/${idUser}`)
       .then(response => {dispatch({
         type: favorite.SET_FAVORITE,
         payload: response.data

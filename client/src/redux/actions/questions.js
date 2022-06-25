@@ -4,7 +4,7 @@ import { question, URL } from "../action-types/index.js";
 export function getQuestions() {
   return (dispatch) => {
     axios
-      .get(`${URL}/posts`)
+      .get(`/posts`)
       .then((response) => {
         const copyTempQuestionsTags = response.data
           .map((question) => {
@@ -32,7 +32,7 @@ export function getQuestions() {
 export function getQuestionDetails(idPost) {
   return (dispatch) => {
     axios
-      .get(`${URL}/posts/${idPost}`)
+      .get(`/posts/${idPost}`)
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -49,7 +49,7 @@ export function getQuestionDetails(idPost) {
 export function getQuestionsByName(name) {
   return (dispatch) => {
     axios
-      .get(`${URL}/posts?title=${name}`)
+      .get(`/posts?title=${name}`)
       .then((response) => {
         dispatch({
           type: question.GET_QUESTIONS_BY_NAME,
@@ -65,7 +65,7 @@ export function getQuestionsByName(name) {
 export function postQuestion(form, idUser) {
   return (dispatch) => {
     axios
-      .post(`${URL}/posts/${idUser}`, form, {
+      .post(`/posts/${idUser}`, form, {
         headers: {
           authorization: idUser,
         },
@@ -117,7 +117,7 @@ export function orderByLikes() {
 export function deleteQuestion(idPost, idUser) {
   return (dispatch) => {
     axios
-      .delete(`${URL}/posts/${idPost}/${idUser}`)
+      .delete(`/posts/${idPost}/${idUser}`)
       .then((response) => {
         dispatch({
           type: question.DELETE_QUESTION,
